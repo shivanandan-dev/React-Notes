@@ -1,0 +1,54 @@
+## **Learnings**
+### **React Essential - Deep Dive**
+- [Fragments `<></>`](https://react.dev/reference/react/Fragment)
+- Splitting components into Subcomponents by feature and state. When there is a change in state or prop, there will be re rendering to that respective component.
+- [Forwarding props](https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax)
+- [Setting component types dynamically](react%20concepts%20notes/Setting%20Component%20Types%20Dynamically.md#setting-component-types-dynamically)
+- Setting default prop values
+    - [Specifting default value for a prop - direct way](https://react.dev/learn/passing-props-to-a-component#specifying-a-default-value-for-a-prop)
+    - [`defaultProp`](https://www.geeksforgeeks.org/reactjs-defaultprops/)
+- [`public/` vs `assets/` for Image Storage](https://www.linkedin.com/pulse/difference-between-public-assets-image-storage-react-mayson-d-lucas-ekbzf)
+- [Component Instances Work In Isolation - Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)
+- [React Hooks: useState with previous state](https://abidemi-dev.medium.com/react-hooks-usestate-with-previous-state-55b6272f1473)
+- [Two way binding](https://medium.com/@fortune.nwuneke/understanding-two-way-binding-in-react-a-comprehensive-guide-c4b970c0df91)
+- [Sharing state between components - *Lifting state up*](https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example)
+- Reducing state management and identifying unnecessary state
+- CSS code is not scoped to components
+- [CSS scoping to components using `*.module.css`](https://www.reacttutorial.com/css-modules-react)
+- Styled Component
+    - [Basics](https://styled-components.com/docs/)
+    - [Pseudo Class with referring to other components](https://styled-components.com/docs/advanced#referring-to-other-components)
+- Refs
+    - [Refs and the DOM](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom)
+    - [Mastering React's useRef Hook: Why it Doesn't Trigger Re-renders and How it Persists Across Re-renders](https://dev.to/samabaasi/mastering-useref-why-it-doesnt-trigger-re-renders-and-how-it-persists-across-re-renders-1l2b)
+        - [Important: Consistency across renders](https://dev.to/samabaasi/mastering-useref-why-it-doesnt-trigger-re-renders-and-how-it-persists-across-re-renders-1l2b#:~:text=Consistency%20Across%20Renders)
+        - [Important: Accessing and Manipulating DOM Elements](https://dev.to/samabaasi/mastering-useref-why-it-doesnt-trigger-re-renders-and-how-it-persists-across-re-renders-1l2b#:~:text=Accessing%20and%20Manipulating%20DOM%20Elements)
+    - [`useImperativeHandle` Hook](https://react.dev/reference/react/useImperativeHandle)
+- [`createPortal`](https://react.dev/reference/react-dom/createPortal)
+- Component Composition
+- Prop Drilling and How to overcome?
+    - [Prop Drilling](https://react.dev/learn/passing-data-deeply-with-context)
+    - [Context API](https://react.dev/learn/passing-data-deeply-with-context#context-an-alternative-to-passing-props)
+    - Context Consumer
+    - Outsourcing context and state into a seperate provider component
+- [`useReducer`](https://react.dev/reference/react/useReducer)
+- `useEffects()`
+    - [What is react side effects?](https://medium.com/@remoteupskill/what-is-a-react-side-effect-a5525129d251)
+    - [What is side-effect in ReactJS and how to handle it?](https://dev.to/hellonehha/what-is-side-effect-in-reactjs-and-how-to-handle-it-39j8)
+        - Importants: Omit dependency array, Blank dependency array, Value in dependency array, cleanup.
+    - A potential problem with side effects: an infinite loop.
+    - Not all side effect needs `useEffect()`
+        - When the side effect is inside a function.
+        - When the side effect is used by user interaction.
+        - When the side effect doesn't lead to infinte loop or infinite re-rendering when a state is updated in the side effect.
+        - > **NOTE**: `useEffect()` is only needed when there is infinite loop or infinite re-rendering during the state update.
+    - Remember when `useEffect()` is used the sideeffects run only after the rendering completes. So `useEffect()` is used when the side effect is needed to be executed after the rendering part.
+    - [useEffect Cleanup](https://refine.dev/blog/useeffect-cleanup/#web-sockets)
+    - The problem with Object and Function Dependencies.
+    - The `useCallback()` hook
+
+    - Data Fetching and HTTP Request
+        - Do not connect database directly using react as the credential can be compromised as the code is exposed to the users.
+            - Instead use backend and fetch the data using (REST) API.
+        - `async` and `await` is not allowed for component functions.
+        - Using `fetch` directly in the component will re-render as the state changes when trying to populate the data. This will lead to a infinite loop.
